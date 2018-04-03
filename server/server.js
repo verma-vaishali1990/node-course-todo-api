@@ -53,9 +53,9 @@ app.delete('/todos/:id',(req,res) =>{
   if(!ObjectID.isValid){
    return res.status(404).send();
   }
-  Todo.findByIdAndRemove(id).then((result) =>{
-    if(result){
-      res.send(result);
+  Todo.findByIdAndRemove(id).then((todo) =>{
+    if(todo){
+      res.send({todo});
     }
     else{
       res.status(400).send();
