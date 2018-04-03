@@ -17,7 +17,7 @@ app.post('/todos',(req,res) =>{
     res.send(doc);
   },(error) =>{
     res.status(400).send(error);
-  })
+  });
   console.log(req.body);
 });
 
@@ -28,7 +28,7 @@ app.get('/todos',(req,res)=>{
     res.status(400).send(error);
   });
 });
-//Get
+
 app.listen('3000',() =>{
   console.log('Started on port 3000');
 });
