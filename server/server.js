@@ -6,6 +6,7 @@ const {ObjectID} = require('mongodb');
 
 
 var {mongoose} = require('./db/mongoose');
+var config = require('./config/config.js');
 var {Todo} = require('./models/todo');
 var {User} =  require('./models/user');
 var {authenticate} = require('./middleware/authenticate');
@@ -120,7 +121,7 @@ app.post('/users',(req,res) =>{
   }).then((token)=>{
     res.header('x-auth',token).send({user});
   }).catch((e) =>{
-    res.status(404).send(e);
+    res.status(404).send({error:e});
   });
 });
 
