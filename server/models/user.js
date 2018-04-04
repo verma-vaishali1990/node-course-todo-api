@@ -63,7 +63,6 @@ UserSchema.methods.removeToken = function(token){
 UserSchema.statics.findByToken = function(token){
  var User = this;
  var decoded ;
-
 try{
   decoded =  jwt.verify(token,'abc123');
 }catch(e){
